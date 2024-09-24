@@ -2,7 +2,7 @@
 
 Frontend/.angular/
 Frontend/node_modules/
- 
+.angular/*
 Backend/node_modules/
 
 # Ignore environment files
