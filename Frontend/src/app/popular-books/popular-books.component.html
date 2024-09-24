@@ -1,0 +1,10 @@
+<div class="popular-books">
+    <h3>Top 5 Popular Books</h3>
+  
+    <ul class="list-group">
+      <li *ngFor="let book of books" class="list-group-item">
+        {{ book.title }} by {{ book.author }} (Rating: {{ book.rating }})
+      </li>
+    </ul>
+  </div>
+  

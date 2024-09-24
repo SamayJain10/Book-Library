@@ -1,0 +1,14 @@
+.admin-dashboard {
+    margin: 20px;
+  }
+  
+  .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  h4 {
+    margin: 0;
+  }
+  

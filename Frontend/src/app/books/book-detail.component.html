@@ -1,0 +1,11 @@
+<div class="card">
+    <h3>{{ book.title }}</h3>
+    <p>Author: {{ book.author }}</p>
+    <p>Genre: {{ book.genre }}</p>
+    <p>Rating: {{ book.rating }}</p>
+    
+
+    <button (click)="deleteBook()" class="btn btn-danger">Delete</button>
+    <button (click)="updateBook()" class="btn btn-warning">Update</button>
+  </div>
+  

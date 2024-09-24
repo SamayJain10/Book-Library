@@ -1,0 +1,26 @@
+### Get all books
+GET http://localhost:3000/books
+
+### Get a book by ID
+GET http://localhost:3000/books/1
+
+### Add a new book
+POST http://localhost:3000/books
+Content-Type: application/json
+
+{
+  "title": "1984",
+  "author": "George Orwell"
+}
+
+### Update a book by ID
+PUT http://localhost:3000/books/1
+Content-Type: application/json
+
+{
+  "title": "The Great Gatsby",
+  "author": "F. Scott Fitzgerald"
+}
+
+### Delete a book by ID
+DELETE http://localhost:3000/books/2

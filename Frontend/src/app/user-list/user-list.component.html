@@ -1,0 +1,36 @@
+<div class="container mt-4">
+    <h2>User List</h2>
+  
+    <ul class="list-group">
+      <li *ngFor="let user of users" class="list-group-item" (click)="selectUser(user)">
+        {{ user.name }}
+      </li>
+    </ul>
+  
+   
+    <app-user-details *ngIf="selectedUser" [user]="selectedUser"></app-user-details>
+  
+    <h3 class="mt-4">Add a New User</h3>
+  
+    <form (ngSubmit)="addUser()" class="row g-3">
+      <div class="col-md-6">
+        <input [(ngModel)]="newUser.name" name="name" placeholder="Name" class="form-control" required>
+      </div>
+      <div class="col-md-2">
+        <input [(ngModel)]="newUser.age" name="age" type="number" placeholder="Age" class="form-control" required>
+      </div>
+      <div class="col-md-4">
+        <input [(ngModel)]="newUser.phone" name="phone" placeholder="Phone" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <input [(ngModel)]="newUser.email" name="email" placeholder="Email" class="form-control" required>
+      </div>
+      <div class="col-md-6">
+        <input [(ngModel)]="newUser.address" name="address" placeholder="Address" class="form-control" required>
+      </div>
+      <div class="col-md-12">
+        <button type="submit" class="btn btn-primary">Add User</button>
+      </div>
+    </form>
+  </div>
+  
