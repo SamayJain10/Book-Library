@@ -1,0 +1,48 @@
+<div class="admin-dashboard container">
+    <h2>Admin Dashboard</h2>
+    
+    <div class="stats">
+      <h4>Total Books: {{ totalBooks }}</h4>
+      <h4>Total Users: {{ totalUsers }}</h4>
+    </div>
+  
+    <app-popular-books [books]="popularBooks"></app-popular-books> 
+    <app-charts></app-charts>
+    <hr>
+ 
+
+    <!-- Form to Add New User -->
+    <h3>Add New User</h3>
+    <form (ngSubmit)="addUser()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="newUser.name" name="name" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input id="age" [(ngModel)]="newUser.age" name="age" type="number" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input id="phone" [(ngModel)]="newUser.phone" name="phone" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" [(ngModel)]="newUser.email" name="email" type="email" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="address">Address:</label>
+        <input id="address" [(ngModel)]="newUser.address" name="address" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input id="username" [(ngModel)]="newUser.username" name="username" class="form-control" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input id="password" [(ngModel)]="newUser.password" name="password" type="password" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Add User</button>
+    </form>
+  </div>
+  <app-book-grid></app-book-grid>

@@ -17,16 +17,16 @@ const users = [
 ];
 
 let books = [
-  { id: 1, title: "The Catcher in the Rye", author: "J.D. Salinger", genre: "Fiction", rating: 4.2 },
-  { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", genre: "Fiction", rating: 4.7 },
-  { id: 3, title: "The Great Gatsby", author: "F. Scott Fitzgerald", genre: "Fiction", rating: 4.1 },
-  { id: 4, title: "A Brief History of Time", author: "Stephen Hawking", genre: "Science", rating: 4.5 },
-  { id: 5, title: "The Selfish Gene", author: "Richard Dawkins", genre: "Science", rating: 4.4 },
-  { id: 6, title: "1984", author: "George Orwell", genre: "Fiction", rating: 4.6 },
-  { id: 7, title: "Moby Dick", author: "Herman Melville", genre: "Fiction", rating: 5.0 },
-  { id: 8, title: "Pride and Prejudice", author: "Jane Austen", genre: "Romance", rating: 4.4 },
-  { id: 9, title: "War and Peace", author: "Leo Tolstoy", genre: "Historical Fiction", rating: 4.3 },
-  { id: 10, title: "The Odyssey", author: "Homer", genre: "Mythology", rating: 4.2 },
+  { id: 1, title: "The Catcher in the Rye", author: "J.D. Salinger", genre: "Fiction", rating: 4.2,  imageUrl: "http://localhost:3000/assets/images/book1.jpg" },
+  { id: 2, title: "To Kill a Mockingbird", author: "Harper Lee", genre: "Fiction", rating: 4.7, imageUrl: "http://localhost:3000/assets/images/book2.jpeg"  },
+  { id: 3, title: "The Great Gatsby", author: "F. Scott Fitzgerald", genre: "Fiction", rating: 4.1, imageUrl: "http://localhost:3000/assets/images/book3.jpeg"  },
+  { id: 4, title: "A Brief History of Time", author: "Stephen Hawking", genre: "Science", rating: 4.5 , imageUrl: "http://localhost:3000/assets/images/book4.jpeg" },
+  { id: 5, title: "The Selfish Gene", author: "Richard Dawkins", genre: "Science", rating: 4.4, imageUrl: "http://localhost:3000/assets/images/book5.jpeg" },
+  { id: 6, title: "1984", author: "George Orwell", genre: "Fiction", rating: 4.6 , imageUrl: "http://localhost:3000/assets/images/book6.jpeg"},
+  { id: 7, title: "Moby Dick", author: "Herman Melville", genre: "Fiction", rating: 5.0 , imageUrl: "http://localhost:3000/assets/images/book7.jpeg"},
+  { id: 8, title: "Pride and Prejudice", author: "Jane Austen", genre: "Romance", rating: 4.4 , imageUrl: "http://localhost:3000/assets/images/book8.jpeg"},
+  { id: 9, title: "War and Peace", author: "Leo Tolstoy", genre: "Historical Fiction", rating: 4.3, imageUrl: "http://localhost:3000/assets/images/book9.jpg" },
+  { id: 10, title: "The Odyssey", author: "Homer", genre: "Mythology", rating: 4.2, imageUrl: "http://localhost:3000/assets/images/book10.jpg" },
   { id: 11, title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", genre: "Fiction", rating: 4.5 },
   { id: 12, title: "Brave New World", author: "Aldous Huxley", genre: "Science Fiction", rating: 4.4 },
   { id: 13, title: "Jane Eyre", author: "Charlotte Brontë", genre: "Romance", rating: 4.3 },
@@ -89,6 +89,7 @@ app.post('/users', (req, res) => {
   res.status(201).json(newUser);
 });
 
+app.use('/assets', express.static('assets'));
 
 
 app.post('/login', (req, res) => {
