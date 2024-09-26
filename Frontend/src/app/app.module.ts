@@ -14,6 +14,8 @@ import { AuthService } from './services/auth.service';
 import { RouterModule } from '@angular/router';
 import { ChartsComponent } from './core/charts/charts.component';
 import { HighchartsChartModule } from 'highcharts-angular';
+import { BookGridComponent } from './core/book-grid/book-grid.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     AdminDashboardComponent,
     PopularBooksComponent,
     ChartsComponent,
+    BookGridComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { HighchartsChartModule } from 'highcharts-angular';
     FormsModule,
     ReactiveFormsModule,
     HighchartsChartModule,
+    AgGridModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ AuthService,
