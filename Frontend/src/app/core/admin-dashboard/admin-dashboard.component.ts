@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service'; 
 import { Book } from '../../models/book';
 import { BookService } from '../../services/book.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -13,8 +14,9 @@ export class AdminDashboardComponent implements OnInit {
   totalUsers: number = 0;
   popularBooks: Book[] = [];
   newUser = { name: '', age: 0, phone: '', email: '', address: '', username: '', password: '' };
+ 
 
-  constructor(private bookService: BookService, private userService: UserService) {}
+  constructor(private bookService: BookService, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchBookData();
@@ -48,5 +50,9 @@ export class AdminDashboardComponent implements OnInit {
       this.fetchTotalUsers(); 
       this.newUser = { name: '', age: 0, phone: '', email: '', address: '', username: '', password: '' }; 
     });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/books']);  
   }
 }

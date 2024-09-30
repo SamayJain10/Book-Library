@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service';  
 import { User } from '../../models/user';  
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -18,8 +19,9 @@ export class UserListComponent implements OnInit {
     email: '',
     address: ''
   };
+ 
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchUsers();  
@@ -41,5 +43,9 @@ export class UserListComponent implements OnInit {
       this.users.push(user);  
       this.newUser = { id: 0, name: '', age: 0, phone: '', email: '', address: '' };  
     });
+  }
+
+  goBack(): void {
+    this.router.navigate(['/books']);  
   }
 }

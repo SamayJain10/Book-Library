@@ -7,21 +7,31 @@ import { User } from '../../models/user';
   styleUrls: ['./user-details.component.css']
 })
 export class UserDetailsComponent implements OnChanges {
+  
+  @Input() user!: any; 
+  @Input() address!: string;
+  @Input() age!: number;
+  @Input() phone!: string;
+  @Input() email!: string;
+  @Input() username!: string;
 
-  @Input() user!: User | null;
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['user']) {
-      const previousUser = changes['user'].previousValue;
-      const currentUser = changes['user'].currentValue;
-      console.log('User details changed from:', previousUser, 'to:', currentUser);
-      if (currentUser) {
-        this.displayUserDetails(currentUser);
+    for (const propName in changes) {
+      if (changes.hasOwnProperty(propName)) {
+        const change = changes[propName];
+        const previousValue = change.previousValue;
+        const currentValue = change.currentValue;
+        
+        if (propName === 'user' && currentValue) {
+          this.displayUserDetails(currentValue);
+        }
       }
     }
   }
 
-  displayUserDetails(user: User) {
-    console.log('Displaying details for user:', user.name);
+ 
+  displayUserDetails(user: any): void {
+    console.log('Displaying user details:', user);
   }
 }

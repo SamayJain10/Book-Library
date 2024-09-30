@@ -9,7 +9,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { UserListComponent } from './core/user-list/user-list.component';
 import { UserDetailsComponent } from './core/user-details/user-details.component';
 import { AdminDashboardComponent } from './core/admin-dashboard/admin-dashboard.component';
-import { PopularBooksComponent } from './utils/popular-books/popular-books.component';
+import { PopularBooksComponent } from './core/popular-books/popular-books.component';
 import { AuthService } from './services/auth.service'; 
 import { RouterModule } from '@angular/router';
 import { ChartsComponent } from './core/charts/charts.component';
