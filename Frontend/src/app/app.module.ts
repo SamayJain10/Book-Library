@@ -6,12 +6,12 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
-import { PopularBooksComponent } from './book/popular-books/popular-books.component';
+import { PopularBooksComponent } from './dashboard/popular-books/popular-books.component';
 import { AuthService } from './services/auth.service'; 
 import { RouterModule } from '@angular/router';
 import { ChartsComponent } from './dashboard/charts/charts.component';
 import { HighchartsChartModule } from 'highcharts-angular';
-import { BookGridComponent } from './book/book-grid/book-grid.component';
+import { BookGridComponent } from './dashboard/book-grid/book-grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { UserModule } from './user/user.module';
 
