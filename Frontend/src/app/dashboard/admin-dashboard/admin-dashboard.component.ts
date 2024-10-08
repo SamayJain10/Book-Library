@@ -28,7 +28,9 @@ export class AdminDashboardComponent implements OnInit {
   fetchBookData(): void {
     this.bookService.getBooks().subscribe((books: Book[]) => {
       this.totalBooks = books.length;
-      this.toastr.success('Books data loaded!', 'Success'); 
+      this.toastr.success('<i class="fas fa-check-circle fa-icon"></i> Data Loaded', '', {
+        enableHtml: true,
+      });
     });
   }
 
@@ -43,7 +45,13 @@ export class AdminDashboardComponent implements OnInit {
   fetchTotalUsers(): void {
     this.userService.getUsers().subscribe((users: any[]) => {
       this.totalUsers = users.length; 
-      this.toastr.info(`Total users: ${this.totalUsers}`, 'Info');
+      this.toastr.info(
+        `<i class="fas fa-info-circle fa-icon"></i> Total users: ${this.totalUsers}`,
+        '',
+        {
+          enableHtml: true,
+        }
+      );
     });
   }
 
@@ -52,7 +60,7 @@ export class AdminDashboardComponent implements OnInit {
       console.log('User added:', user);
       this.fetchTotalUsers(); 
       this.newUser = { name: '', age: 0, phone: '', email: '', address: '', username: '', password: '' }; 
-      this.toastr.success('User added successfully!', 'Success');
+      this.toastr.success('User added successfully!' );
     });
   }
 

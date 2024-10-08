@@ -19,11 +19,15 @@ export class LoginComponent {
     this.authService.login(this.username, this.password).subscribe({
       next: (response) => {
         console.log('Login successful');
+        this.toastr.success('<i class="fas fa-check-circle fa-icon"></i> Login Successful', '', {
+          enableHtml: true});
         this.router.navigate(['/books']);  
       },
       error: (error) => {
         console.error(error); 
-        this.toastr.error(this.errorMessage, 'Error: Invalid Credentials');
+        this.toastr.error('<i class="fas fa-times-circle fa-icon"></i> Invalid Credentials', '', {
+          enableHtml: true
+        });
       },
     });
   }
