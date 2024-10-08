@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../../services/book.service';
 import { Book } from '../../models/book';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-books',
@@ -17,6 +18,7 @@ export class BooksComponent implements OnInit {
 
   constructor(
     private bookService: BookService,
+    private toastr: ToastrService,
     private formBuilder: FormBuilder
   ) {
     this.bookForm = this.formBuilder.group({
@@ -33,6 +35,7 @@ export class BooksComponent implements OnInit {
     this.bookService.getBooks().subscribe((data: Book[]) => {
       console.log('Books fetched:', data); 
       this.books = data;
+      this.toastr.success('Books fetched successfully', 'Success');
       this.filteredBooks = data;
     });
   }

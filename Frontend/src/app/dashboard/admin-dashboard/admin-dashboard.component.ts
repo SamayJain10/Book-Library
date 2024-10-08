@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { Book } from '../../models/book';
 import { BookService } from '../../services/book.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -16,7 +17,7 @@ export class AdminDashboardComponent implements OnInit {
   newUser = { name: '', age: 0, phone: '', email: '', address: '', username: '', password: '' };
  
 
-  constructor(private bookService: BookService, private userService: UserService, private router: Router) {}
+  constructor(private bookService: BookService, private userService: UserService, private router: Router, private toastr: ToastrService ) {}
 
   ngOnInit(): void {
     this.fetchBookData();
@@ -27,6 +28,7 @@ export class AdminDashboardComponent implements OnInit {
   fetchBookData(): void {
     this.bookService.getBooks().subscribe((books: Book[]) => {
       this.totalBooks = books.length;
+      this.toastr.success('Books data loaded!', 'Success'); 
     });
   }
 
@@ -41,6 +43,7 @@ export class AdminDashboardComponent implements OnInit {
   fetchTotalUsers(): void {
     this.userService.getUsers().subscribe((users: any[]) => {
       this.totalUsers = users.length; 
+      this.toastr.info(`Total users: ${this.totalUsers}`, 'Info');
     });
   }
 
@@ -49,6 +52,7 @@ export class AdminDashboardComponent implements OnInit {
       console.log('User added:', user);
       this.fetchTotalUsers(); 
       this.newUser = { name: '', age: 0, phone: '', email: '', address: '', username: '', password: '' }; 
+      this.toastr.success('User added successfully!', 'Success');
     });
   }
 

@@ -14,6 +14,8 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { BookGridComponent } from './dashboard/book-grid/book-grid.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { UserModule } from './user/user.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -26,6 +28,7 @@ import { UserModule } from './user/user.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
@@ -33,7 +36,12 @@ import { UserModule } from './user/user.module';
     ReactiveFormsModule,
     HighchartsChartModule,
     AgGridModule,
-    UserModule
+    UserModule,
+    ToastrModule.forRoot({
+      timeOut: 3000, 
+      positionClass: 'toast-top', 
+      preventDuplicates: true, 
+    })
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [ AuthService,

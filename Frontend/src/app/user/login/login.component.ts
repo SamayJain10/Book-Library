@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service'; 
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent {
   password: string = '';
   errorMessage: string = '';
 
-  constructor(private authService: AuthService, private router: Router) {} 
+  constructor(private authService: AuthService, private toastr: ToastrService, private router: Router) {} 
 
   login(): void {
     this.authService.login(this.username, this.password).subscribe({
@@ -22,7 +23,7 @@ export class LoginComponent {
       },
       error: (error) => {
         console.error(error); 
-        this.errorMessage = 'Invalid username or password'; 
+        this.toastr.error(this.errorMessage, 'Error: Invalid Credentials');
       },
     });
   }
